@@ -19,7 +19,7 @@ app.use(cors());
 
 app.get('/', (req, res) => res.send('Hello World!'));
 
-function handleRequestFromGet(browserRes: express.Response, token: string) {
+async function handleRequestFromGet(browserRes: express.Response, token: string) {
   const pendingRequest = pendingRequests[token];
 
   if (!pendingRequest) {
@@ -33,10 +33,10 @@ function handleRequestFromGet(browserRes: express.Response, token: string) {
     throw new Error('Missing response from from app ' + token);
   }
 
-  handleRequest(pendingRequest.appReq, pendingRequest.appRes, browserRes);
+  await handleRequest(pendingRequest.appReq, pendingRequest.appRes, browserRes);
 }
 
-function handleRequestFromPost(appRequest: express.Request, appRes: express.Response) {
+async function handleRequestFromPost(appRequest: express.Request, appRes: express.Response) {
   const { token } = appRequest.params;
   const pendingRequest = pendingRequests[token]
 
@@ -47,19 +47,31 @@ function handleRequestFromPost(appRequest: express.Request, appRes: express.Resp
     throw new Error('Missing request from browser ' + token);
   }
 
-  handleRequest(appRequest, appRes, pendingRequest.browserRes);
+  await handleRequest(appRequest, appRes, pendingRequest.browserRes);
+}
+
+function closeEverything(appRes: express.Response, browserRes: express.Response) {
+  try { appRes.json({}) } catch (e) {};
+  try { browserRes.json({}) } catch (e) {};
 }
 
 async function handleRequest(appReq: express.Request, appRes: express.Response, browserRes: express.Response) {
   const { token } = appReq.params;
-  console.log('piping request', token);
-  await promisepipe(appReq, browserRes);
-  console.log('pipe done!');
-  appRes.json({ ok: true });
-  delete pendingRequests[token];
+
+  try {
+    console.log('piping request', token);
+    await promisepipe(appReq, browserRes);
+    console.log('pipe done!');
+    appRes.json({ok: true});
+  } catch (e) {
+    console.error(e);
+  } finally {
+    delete pendingRequests[token];
+    closeEverything(appRes, browserRes);
+  }
 }
 
-app.get('/file/:token', (browserReq: express.Request, browserRes: express.Response) => {
+app.get('/file/:token', async (browserReq: express.Request, browserRes: express.Response) => {
   const { token } = browserReq.params;
   if (!token) {
     return browserRes.status(401).json({ error: 'Missing token' });
@@ -68,6 +80,7 @@ app.get('/file/:token', (browserReq: express.Request, browserRes: express.Respon
   if (pendingRequest) {
     return handleRequestFromGet(browserRes, token);
   }
+
   console.log('adding browser request to map');
   pendingRequests[token] = { browserRes };
 });

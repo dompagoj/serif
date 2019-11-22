@@ -3,6 +3,7 @@ import cors from 'cors';
 import promisepipe from 'promisepipe';
 import QRCode from 'qrcode';
 import crypto from 'crypto'
+import morgan from 'morgan';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,6 +19,7 @@ type PendingRequestsMap  = { [token: string]: IPendingRequest };
 const pendingRequests: PendingRequestsMap = {};
 
 app.use(cors());
+app.use(morgan('tiny'));
 
 app.get('/', async (req, res: express.Response) => {
   const token = crypto.randomBytes(20).toString('hex');
@@ -100,7 +102,7 @@ app.get('/file/:token', async (browserReq: express.Request, browserRes: express.
   pendingRequests[token] = { browserRes };
 });
 
-app.post('/file/:token', (appReq: express.Request, appRes: express.Response) => {
+app.post('/file/:token/:path*?', (appReq: express.Request, appRes: express.Response) => {
   const { token } = appReq.params;
   if (!token) {
     return appRes.status(401).json({ error: 'Missing token' });

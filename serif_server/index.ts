@@ -51,8 +51,8 @@ async function handleRequestFromPost(appRequest: express.Request, appRes: expres
 }
 
 function closeEverything(appRes: express.Response, browserRes: express.Response) {
-  try { appRes.json({}) } catch (e) {};
-  try { browserRes.json({}) } catch (e) {};
+  try { appRes.json({}) } catch (e) {}
+  try { browserRes.json({}) } catch (e) {}
 }
 
 async function handleRequest(appReq: express.Request, appRes: express.Response, browserRes: express.Response) {

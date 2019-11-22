@@ -16,17 +16,23 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+
     _intentDataStreamSubscription = ReceiveSharingIntent.getMediaStream().listen((files) {
       var file = File(files.first.path);
       if (!file.existsSync()) return;
 
       var contentStream = file.openRead();
+
       contentStream.listen((bytes) {
         print("Got bytes! " + bytes.length.toString());
+
+        
+
       }, onDone: () {
         print("DONE!");
       });
     });
+
     ReceiveSharingIntent.getInitialMedia().then((files) {
       if (files == null) return;
       if (files.first == null) return;
@@ -38,9 +44,9 @@ class _HomePageState extends State<HomePage> {
       print("Length: " + files.length.toString());
     });
 
-    QRCodeReader().scan().then((qrCode) {
-      print("QR CODE: " + qrCode);
-    });
+    // QRCodeReader().scan().then((qrCode) {
+    //   print("QR CODE: " + qrCode);
+    // });
   }
 
   @override

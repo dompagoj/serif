@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import promisepipe from 'promisepipe';
+import QRCode from 'qrcode';
+import crypto from 'crypto'
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,7 +19,20 @@ const pendingRequests: PendingRequestsMap = {};
 
 app.use(cors());
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/', async (req, res: express.Response) => {
+  const token = crypto.randomBytes(20).toString('hex');
+  const src = await QRCode.toDataURL(token);
+  const href = `/file/${token}`;
+  const template = `
+    <html>
+      <div>
+        <img src="${src}" width="800" />
+      </div>
+      <a href="${href}">Start downloading</a>
+    </html>
+   `;
+  res.send(template);
+});
 
 async function handleRequestFromGet(browserRes: express.Response, token: string) {
   const pendingRequest = pendingRequests[token];

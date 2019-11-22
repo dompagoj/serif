@@ -31,6 +31,9 @@ app.get('/', async (req, res: express.Response) => {
         <img src="${src}" width="800" />
       </div>
       <a href="${href}">Start downloading</a>
+      <script>
+        window.location.href = "${href}"; 
+      </script>
     </html>
    `;
   res.send(template);

@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:path/path.dart' as path;
 import 'package:qrcode_reader/qrcode_reader.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
+import 'package:serif_mobile/http.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,41 +14,33 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   StreamSubscription _intentDataStreamSubscription;
+  String _url;
 
   @override
   void initState() {
     super.initState();
 
-    _intentDataStreamSubscription = ReceiveSharingIntent.getMediaStream().listen((files) {
-      var file = File(files.first.path);
-      if (!file.existsSync()) return;
+    _intentDataStreamSubscription = ReceiveSharingIntent.getMediaStream().listen(handleFileShare);
+    ReceiveSharingIntent.getInitialMedia().then(handleFileShare);
+  }
 
-      var contentStream = file.openRead();
+  Future<void> handleFileShare(List<SharedMediaFile> files) async {
+    if (files == null) return;
+    if (files.first == null) return;
 
-      contentStream.listen((bytes) {
-        print("Got bytes! " + bytes.length.toString());
+    var file = File(files.first.path);
+    var filename = path.basename(file.path);
 
-        
+    if (!(await file.exists())) return;
 
-      }, onDone: () {
-        print("DONE!");
-      });
+    var contentStream = file.openRead();
+
+    var qrCode = await QRCodeReader().scan();
+    await http.sendFile(contentStream, qrCode, filename);
+
+    setState(() {
+      _url = "https://shaerif.herokuapp.com/file/$qrCode/$filename";
     });
-
-    ReceiveSharingIntent.getInitialMedia().then((files) {
-      if (files == null) return;
-      if (files.first == null) return;
-
-      var file = File(files.first.path);
-      if (!file.existsSync()) return;
-
-      print("Shared files initial!");
-      print("Length: " + files.length.toString());
-    });
-
-    // QRCodeReader().scan().then((qrCode) {
-    //   print("QR CODE: " + qrCode);
-    // });
   }
 
   @override
@@ -58,9 +52,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Text('Hello'),
-      ),
-    );
+        body: Center(
+      child: _url == null || _url.isEmpty
+          ? Text('Hello, share a file into this app to upload it!')
+          : Center(
+              child: Wrap(
+              children: [
+                Text('Uploaded! Go to '),
+                Text(_url, style: TextStyle(fontWeight: FontWeight.bold)),
+                Text(' To download your file.')
+              ],
+            )),
+    ));
   }
 }

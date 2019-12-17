@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart' as path;
 import 'package:qrcode_reader/qrcode_reader.dart';
-import 'package:receive_sharing_intent/receive_sharing_intent.dart';
+import 'package:serif_mobile/ReceiveShareIntent.dart';
 import 'package:serif_mobile/http.dart';
 
 class HomePage extends StatefulWidget {
@@ -20,23 +20,26 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
 
-    _intentDataStreamSubscription = ReceiveSharingIntent.getMediaStream().listen(handleFileShare);
-    ReceiveSharingIntent.getInitialMedia().then(handleFileShare);
+    _intentDataStreamSubscription = ReceiveShareIntent.getMediaStream().listen((file) => handleFileShare(file));
+    // ReceiveSharingIntent.getInitialMedia().then(handleFileShare);
   }
 
-  Future<void> handleFileShare(List<SharedMediaFile> files) async {
-    if (files == null) return;
-    if (files.first == null) return;
 
-    var file = File(files.first.path);
-    var filename = path.basename(file.path);
+  Future<void> handleFileShare(Map raw) async {
+    final shareData = ShareIntentData.fromRaw(raw);
+
+    if (shareData.path == null || shareData.path.isEmpty) return;
+
+    final file = File(shareData.path);
+    final filename = path.basename(file.path);
 
     if (!(await file.exists())) return;
 
-    var contentStream = file.openRead();
+    final qrCode = await QRCodeReader().scan();
 
-    var qrCode = await QRCodeReader().scan();
+    final contentStream = file.openRead();
     await http.sendFile(contentStream, qrCode, filename);
+
 
     setState(() {
       _url = "https://shaerif.herokuapp.com/file/$qrCode/$filename";

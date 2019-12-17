@@ -9,6 +9,8 @@
 .history
 .svn/
 
+.flutter-plugins-dependencies
+
 # IntelliJ related
 *.iml
 *.ipr

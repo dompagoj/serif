@@ -1,0 +1,630 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		13FB7D2D6AFABB2851C8F188 /* Pods_Shareif.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2718E7D473F1A7ABB085D7F4 /* Pods_Shareif.framework */; };
+		AC806D0223B76E4900F26187 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC806D0123B76E4900F26187 /* AppDelegate.swift */; };
+		AC806D0423B76E4900F26187 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC806D0323B76E4900F26187 /* ViewController.swift */; };
+		AC806D0723B76E4900F26187 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC806D0523B76E4900F26187 /* Main.storyboard */; };
+		AC806D0923B76E5000F26187 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC806D0823B76E5000F26187 /* Assets.xcassets */; };
+		AC806D0C23B76E5000F26187 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC806D0A23B76E5000F26187 /* LaunchScreen.storyboard */; };
+		AC806D1A23B76F3F00F26187 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC806D1923B76F3F00F26187 /* ShareViewController.swift */; };
+		AC806D1D23B76F3F00F26187 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC806D1B23B76F3F00F26187 /* MainInterface.storyboard */; };
+		AC806D2123B76F3F00F26187 /* ShareifS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AC806D1723B76F3F00F26187 /* ShareifS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F0975ECCD408D8A10DE9BA15 /* Pods_ShareifS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D9442744676B66363A89A3 /* Pods_ShareifS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		AC806D1F23B76F3F00F26187 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AC806CF623B76E4900F26187 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AC806D1623B76F3F00F26187;
+			remoteInfo = ShareifShare;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AC806D2523B76F3F00F26187 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AC806D2123B76F3F00F26187 /* ShareifS.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		2718E7D473F1A7ABB085D7F4 /* Pods_Shareif.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shareif.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		72D9442744676B66363A89A3 /* Pods_ShareifS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ShareifS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		96685D4F93603176CEC2D4C4 /* Pods-ShareifS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareifS.release.xcconfig"; path = "Pods/Target Support Files/Pods-ShareifS/Pods-ShareifS.release.xcconfig"; sourceTree = "<group>"; };
+		AC806CFE23B76E4900F26187 /* Shareif.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shareif.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC806D0123B76E4900F26187 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		AC806D0323B76E4900F26187 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		AC806D0623B76E4900F26187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		AC806D0823B76E5000F26187 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AC806D0B23B76E5000F26187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		AC806D0D23B76E5000F26187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC806D1723B76F3F00F26187 /* ShareifS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShareifS.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC806D1923B76F3F00F26187 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		AC806D1C23B76F3F00F26187 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		AC806D1E23B76F3F00F26187 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AC806D2623B78D6100F26187 /* Shareif.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shareif.entitlements; sourceTree = "<group>"; };
+		AC806D2723B78D7500F26187 /* ShareifS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShareifS.entitlements; sourceTree = "<group>"; };
+		CD67079096109D13E92955D8 /* Pods-Shareif.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shareif.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shareif/Pods-Shareif.debug.xcconfig"; sourceTree = "<group>"; };
+		F7522A89C1B536019536765B /* Pods-Shareif.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shareif.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shareif/Pods-Shareif.release.xcconfig"; sourceTree = "<group>"; };
+		F7B668B146942D4561DFB182 /* Pods-ShareifS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShareifS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ShareifS/Pods-ShareifS.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		AC806CFB23B76E4900F26187 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				13FB7D2D6AFABB2851C8F188 /* Pods_Shareif.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC806D1423B76F3F00F26187 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F0975ECCD408D8A10DE9BA15 /* Pods_ShareifS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		31539E3BF85E26A05B219E54 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2718E7D473F1A7ABB085D7F4 /* Pods_Shareif.framework */,
+				72D9442744676B66363A89A3 /* Pods_ShareifS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		96979985A4BB2B20A3AAC143 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD67079096109D13E92955D8 /* Pods-Shareif.debug.xcconfig */,
+				F7522A89C1B536019536765B /* Pods-Shareif.release.xcconfig */,
+				F7B668B146942D4561DFB182 /* Pods-ShareifS.debug.xcconfig */,
+				96685D4F93603176CEC2D4C4 /* Pods-ShareifS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC806CF523B76E4900F26187 = {
+			isa = PBXGroup;
+			children = (
+				AC806D2723B78D7500F26187 /* ShareifS.entitlements */,
+				AC806D0023B76E4900F26187 /* Shareif */,
+				AC806D1823B76F3F00F26187 /* ShareifShare */,
+				AC806CFF23B76E4900F26187 /* Products */,
+				96979985A4BB2B20A3AAC143 /* Pods */,
+				31539E3BF85E26A05B219E54 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		AC806CFF23B76E4900F26187 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AC806CFE23B76E4900F26187 /* Shareif.app */,
+				AC806D1723B76F3F00F26187 /* ShareifS.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		AC806D0023B76E4900F26187 /* Shareif */ = {
+			isa = PBXGroup;
+			children = (
+				AC806D2623B78D6100F26187 /* Shareif.entitlements */,
+				AC806D0123B76E4900F26187 /* AppDelegate.swift */,
+				AC806D0323B76E4900F26187 /* ViewController.swift */,
+				AC806D0523B76E4900F26187 /* Main.storyboard */,
+				AC806D0823B76E5000F26187 /* Assets.xcassets */,
+				AC806D0A23B76E5000F26187 /* LaunchScreen.storyboard */,
+				AC806D0D23B76E5000F26187 /* Info.plist */,
+			);
+			path = Shareif;
+			sourceTree = "<group>";
+		};
+		AC806D1823B76F3F00F26187 /* ShareifShare */ = {
+			isa = PBXGroup;
+			children = (
+				AC806D1923B76F3F00F26187 /* ShareViewController.swift */,
+				AC806D1B23B76F3F00F26187 /* MainInterface.storyboard */,
+				AC806D1E23B76F3F00F26187 /* Info.plist */,
+			);
+			path = ShareifShare;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		AC806CFD23B76E4900F26187 /* Shareif */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC806D1023B76E5000F26187 /* Build configuration list for PBXNativeTarget "Shareif" */;
+			buildPhases = (
+				A6F827BE826E605DAC46D180 /* [CP] Check Pods Manifest.lock */,
+				AC806CFA23B76E4900F26187 /* Sources */,
+				AC806CFB23B76E4900F26187 /* Frameworks */,
+				AC806CFC23B76E4900F26187 /* Resources */,
+				AC806D2523B76F3F00F26187 /* Embed App Extensions */,
+				097D0A13C82A6567B0BB9EEA /* [CP] Embed Pods Frameworks */,
+				65B4FCC6A1DF569817B633AD /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AC806D2023B76F3F00F26187 /* PBXTargetDependency */,
+			);
+			name = Shareif;
+			productName = Shareif;
+			productReference = AC806CFE23B76E4900F26187 /* Shareif.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AC806D1623B76F3F00F26187 /* ShareifS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AC806D2223B76F3F00F26187 /* Build configuration list for PBXNativeTarget "ShareifS" */;
+			buildPhases = (
+				D9E2947DF7AB1712D649A1B1 /* [CP] Check Pods Manifest.lock */,
+				AC806D1323B76F3F00F26187 /* Sources */,
+				AC806D1423B76F3F00F26187 /* Frameworks */,
+				AC806D1523B76F3F00F26187 /* Resources */,
+				99BC4C7FBDE32D6833C7E25C /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ShareifS;
+			productName = ShareifShare;
+			productReference = AC806D1723B76F3F00F26187 /* ShareifS.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		AC806CF623B76E4900F26187 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Josip Maric";
+				TargetAttributes = {
+					AC806CFD23B76E4900F26187 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+					AC806D1623B76F3F00F26187 = {
+						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
+					};
+				};
+			};
+			buildConfigurationList = AC806CF923B76E4900F26187 /* Build configuration list for PBXProject "Shareif" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = AC806CF523B76E4900F26187;
+			productRefGroup = AC806CFF23B76E4900F26187 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				AC806CFD23B76E4900F26187 /* Shareif */,
+				AC806D1623B76F3F00F26187 /* ShareifS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		AC806CFC23B76E4900F26187 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC806D0C23B76E5000F26187 /* LaunchScreen.storyboard in Resources */,
+				AC806D0923B76E5000F26187 /* Assets.xcassets in Resources */,
+				AC806D0723B76E4900F26187 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC806D1523B76F3F00F26187 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC806D1D23B76F3F00F26187 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		097D0A13C82A6567B0BB9EEA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shareif/Pods-Shareif-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65B4FCC6A1DF569817B633AD /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shareif/Pods-Shareif-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99BC4C7FBDE32D6833C7E25C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ShareifS/Pods-ShareifS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6F827BE826E605DAC46D180 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shareif-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9E2947DF7AB1712D649A1B1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ShareifS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AC806CFA23B76E4900F26187 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC806D0423B76E4900F26187 /* ViewController.swift in Sources */,
+				AC806D0223B76E4900F26187 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AC806D1323B76F3F00F26187 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AC806D1A23B76F3F00F26187 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AC806D2023B76F3F00F26187 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AC806D1623B76F3F00F26187 /* ShareifS */;
+			targetProxy = AC806D1F23B76F3F00F26187 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		AC806D0523B76E4900F26187 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC806D0623B76E4900F26187 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		AC806D0A23B76E5000F26187 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC806D0B23B76E5000F26187 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		AC806D1B23B76F3F00F26187 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AC806D1C23B76F3F00F26187 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		AC806D0E23B76E5000F26187 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		AC806D0F23B76E5000F26187 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AC806D1123B76E5000F26187 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD67079096109D13E92955D8 /* Pods-Shareif.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Shareif/Shareif.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CA7C9XPA53;
+				INFOPLIST_FILE = Shareif/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jmaric.Shareif;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC806D1223B76E5000F26187 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7522A89C1B536019536765B /* Pods-Shareif.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Shareif/Shareif.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CA7C9XPA53;
+				INFOPLIST_FILE = Shareif/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jmaric.Shareif;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AC806D2323B76F3F00F26187 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7B668B146942D4561DFB182 /* Pods-ShareifS.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_ENTITLEMENTS = ShareifS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CA7C9XPA53;
+				INFOPLIST_FILE = ShareifShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jmaric.Shareif.ShareifShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AC806D2423B76F3F00F26187 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96685D4F93603176CEC2D4C4 /* Pods-ShareifS.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				CODE_SIGN_ENTITLEMENTS = ShareifS.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CA7C9XPA53;
+				INFOPLIST_FILE = ShareifShare/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = jmaric.Shareif.ShareifShare;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		AC806CF923B76E4900F26187 /* Build configuration list for PBXProject "Shareif" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC806D0E23B76E5000F26187 /* Debug */,
+				AC806D0F23B76E5000F26187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC806D1023B76E5000F26187 /* Build configuration list for PBXNativeTarget "Shareif" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC806D1123B76E5000F26187 /* Debug */,
+				AC806D1223B76E5000F26187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AC806D2223B76F3F00F26187 /* Build configuration list for PBXNativeTarget "ShareifS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AC806D2323B76F3F00F26187 /* Debug */,
+				AC806D2423B76F3F00F26187 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = AC806CF623B76E4900F26187 /* Project object */;
+}

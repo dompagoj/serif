@@ -1,0 +1,6 @@
+framework module Pods_ShareifS {
+  umbrella header "Pods-ShareifS-umbrella.h"
+
+  export *
+  module * { export * }
+}

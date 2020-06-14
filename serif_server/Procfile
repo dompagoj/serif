@@ -1,1 +1,2 @@
-web: npx nnode index.ts
+web: npx nnode src/backend
+release: npm run build-frontend

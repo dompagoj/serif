@@ -1,12 +1,12 @@
-import express from 'express';
 import cors from 'cors';
+import crypto from 'crypto';
+import express from 'express';
+import morgan from 'morgan';
 import promisepipe from 'promisepipe';
 import QRCode from 'qrcode';
-import crypto from 'crypto'
-import morgan from 'morgan';
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 interface IPendingRequest {
   browserRes?: express.Response;
@@ -14,12 +14,38 @@ interface IPendingRequest {
   appRes?: express.Response;
 }
 
-type PendingRequestsMap  = { [token: string]: IPendingRequest };
+type PendingRequestsMap = { [token: string]: IPendingRequest };
 
 const pendingRequests: PendingRequestsMap = {};
 
+function closeEverything(appRes: express.Response, browserRes: express.Response) {
+  try {
+    appRes.json({});
+  } catch (e) {}
+  try {
+    browserRes.json({});
+  } catch (e) {}
+}
+
+async function handleRequest(appReq: express.Request, appRes: express.Response, browserRes: express.Response) {
+  const { token } = appReq.params;
+
+  try {
+    console.log('piping request', token);
+    await promisepipe(appReq, browserRes);
+    console.log('pipe done!');
+    appRes.json({ ok: true });
+  } catch (e) {
+    console.error(e);
+  } finally {
+    delete pendingRequests[token];
+    closeEverything(appRes, browserRes);
+  }
+}
+
 app.use(cors());
 app.use(morgan('tiny'));
+app.use(express.static('build'));
 
 app.get('/', async (req, res: express.Response) => {
   const token = crypto.randomBytes(20).toString('hex');
@@ -55,7 +81,7 @@ async function handleRequestFromGet(browserRes: express.Response, token: string)
 
 async function handleRequestFromPost(appRequest: express.Request, appRes: express.Response) {
   const { token } = appRequest.params;
-  const pendingRequest = pendingRequests[token]
+  const pendingRequest = pendingRequests[token];
 
   if (!pendingRequest) {
     throw new Error('Missing pending request');
@@ -65,27 +91,6 @@ async function handleRequestFromPost(appRequest: express.Request, appRes: expres
   }
 
   await handleRequest(appRequest, appRes, pendingRequest.browserRes);
-}
-
-function closeEverything(appRes: express.Response, browserRes: express.Response) {
-  try { appRes.json({}) } catch (e) {}
-  try { browserRes.json({}) } catch (e) {}
-}
-
-async function handleRequest(appReq: express.Request, appRes: express.Response, browserRes: express.Response) {
-  const { token } = appReq.params;
-
-  try {
-    console.log('piping request', token);
-    await promisepipe(appReq, browserRes);
-    console.log('pipe done!');
-    appRes.json({ok: true});
-  } catch (e) {
-    console.error(e);
-  } finally {
-    delete pendingRequests[token];
-    closeEverything(appRes, browserRes);
-  }
 }
 
 app.get('/file/:token', async (browserReq: express.Request, browserRes: express.Response) => {
@@ -112,7 +117,7 @@ app.post('/file/:token/:path*?', (appReq: express.Request, appRes: express.Respo
     return handleRequestFromPost(appReq, appRes);
   }
   console.log('adding app request to map');
-  pendingRequests[token] =  { appReq, appRes };
+  pendingRequests[token] = { appReq, appRes };
 });
 
 app.get('/status/:token', (appReq: express.Request, appRes: express.Response) => {

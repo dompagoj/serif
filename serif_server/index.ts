@@ -128,4 +128,13 @@ app.get('/status/:token', (appReq: express.Request, appRes: express.Response) =>
   appRes.json({ status: 'UPLOADING' });
 });
 
+app.get('/qr-code/:token', async (appReq: express.Request, appRes: express.Response) => {
+  const { token } = appReq.params;
+  if (!token) {
+    return appRes.status(401).json({ error: 'Missing token' });
+  }
+  appRes.contentType('image/png');
+  await QRCode.toFileStream(appRes, token, { width: 600, errorCorrectionLevel: 'H' });
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

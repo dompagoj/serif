@@ -28,7 +28,7 @@ app.get('/', async (req, res: express.Response) => {
   const template = `
     <html>
       <div>
-        <img src="${src}" width="800" />
+        <img src="${src}" height="80%" />
       </div>
       <a href="${href}">Start downloading</a>
     </html>
@@ -113,6 +113,19 @@ app.post('/file/:token/:path*?', (appReq: express.Request, appRes: express.Respo
   }
   console.log('adding app request to map');
   pendingRequests[token] =  { appReq, appRes };
+});
+
+app.get('/status/:token', (appReq: express.Request, appRes: express.Response) => {
+  const { token } = appReq.params;
+  if (!token) {
+    return appRes.status(401).json({ error: 'Missing token' });
+  }
+  const pendingRequest = pendingRequests[token];
+  if (!pendingRequest || !pendingRequest.appReq) {
+    return appRes.json({ status: 'WAITING' });
+  }
+
+  appRes.json({ status: 'UPLOADING' });
 });
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

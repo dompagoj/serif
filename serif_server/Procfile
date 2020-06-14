@@ -1,2 +1,2 @@
 web: npx nnode src/backend
-release: npm run build-frontend
+build: npm run build-frontend

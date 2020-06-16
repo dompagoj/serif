@@ -46,7 +46,15 @@ async function handleRequest(appReq: express.Request, appRes: express.Response, 
 app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.static('build'));
-app.use(express.static('public'));
+
+app.use('/.well-known/acme-challenge/:challenge', (req, res) => {
+  const { challenge } = req.params;
+  const challengeResponse = process.env[`SSL_KEY_${challenge}`];
+  if (!challengeResponse) {
+    return res.status(404).send('Not Found');
+  }
+  return res.send(challengeResponse);
+});
 
 app.get('/', async (req, res: express.Response) => {
   const token = crypto.randomBytes(20).toString('hex');

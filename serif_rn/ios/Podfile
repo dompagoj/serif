@@ -100,11 +100,6 @@ target 'shareif' do
   pod 'Permission-SpeechRecognition', :path => "#{permissions_path}/SpeechRecognition.podspec"
   pod 'Permission-StoreKit', :path => "#{permissions_path}/StoreKit.podspec"
 
-  target 'shareifTests' do
-    inherit! :complete
-    # Pods for testing
-  end
-
   use_native_modules!
 
   # Enables Flipper.
@@ -114,14 +109,5 @@ target 'shareif' do
   add_flipper_pods!
   post_install do |installer|
     flipper_post_install(installer)
-  end
-end
-
-target 'shareif-tvOS' do
-  # Pods for shareif-tvOS
-
-  target 'shareif-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
   end
 end

@@ -18,12 +18,12 @@
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-camera": "^3.30.0",
-    "react-native-file-share-intent": "^1.1.3",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.6.1",
     "react-native-permissions": "^2.1.5",
     "react-native-qrcode-scanner": "^1.4.1",
     "react-native-reanimated": "^1.9.0",
+    "react-native-receive-sharing-intent": "^1.0.4",
     "react-native-safe-area-context": "^3.0.4",
     "react-native-screens": "^2.8.0",
     "react-use": "^15.2.2"

@@ -14,6 +14,11 @@ const containerStyle = css`
   justify-items: center;
 `;
 
+const imageStyle = css`
+  max-width: 100%;
+  max-height: 100%;
+`;
+
 const baseUrl = process.env.REACT_APP_BACKEND_URL || 'https://shaerif.herokuapp.com';
 
 const token = random();
@@ -36,7 +41,7 @@ export const LandingPage = () => {
 
   return (
     <div className={containerStyle}>
-      <img src={qrUrl} alt="QR Code" />
+      <img src={qrUrl} alt="QR Code" className={imageStyle}/>
     </div>
   );
 };

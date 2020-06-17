@@ -47,21 +47,6 @@ app.use(cors());
 app.use(morgan('tiny'));
 app.use(express.static('build'));
 
-app.get('/', async (req, res: express.Response) => {
-  const token = crypto.randomBytes(20).toString('hex');
-  const src = await QRCode.toDataURL(token);
-  const href = `/file/${token}`;
-  const template = `
-    <html>
-      <div>
-        <img src="${src}" height="80%" />
-      </div>
-      <a href="${href}">Start downloading</a>
-    </html>
-   `;
-  res.send(template);
-});
-
 async function handleRequestFromGet(browserRes: express.Response, token: string) {
   const pendingRequest = pendingRequests[token];
 

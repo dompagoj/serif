@@ -10,7 +10,7 @@ import Social
 import MobileCoreServices
 import Photos
 
-class ShareViewController: SLComposeServiceViewController {
+class ShareViewController: UIViewController {
   // TODO: IMPORTANT: This should be your host app bundle identifier
   let hostAppBundleIdentifier = "xyz.shareif"
   let sharedKey = "ShareKey"
@@ -22,11 +22,15 @@ class ShareViewController: SLComposeServiceViewController {
   let urlContentType = kUTTypeURL as String
   let fileURLType = kUTTypeFileURL as String;
 
-  override func isContentValid() -> Bool {
+  func isContentValid() -> Bool {
     return true
   }
 
-  override func didSelectPost() {
+  override func viewDidAppear(_ animated: Bool) {
+    didSelectPost()
+  }
+
+  func didSelectPost() {
     // This is called after the user selects Post. Do the upload of contentText and/or NSExtensionContext attachments.
     if let content = extensionContext!.inputItems[0] as? NSExtensionItem {
       if let contents = content.attachments {
@@ -41,13 +45,39 @@ class ShareViewController: SLComposeServiceViewController {
             handleUrl(content: content, attachment: attachment, index: index)
           } else if attachment.hasItemConformingToTypeIdentifier(videoContentType) {
             handleVideos(content: content, attachment: attachment, index: index)
+          } else {
+            let typeIdentifier = attachment.registeredTypeIdentifiers[0]
+            attachment.loadItem(forTypeIdentifier: typeIdentifier, options: nil) { [weak self] data, error in
+              if error == nil, let url = data as? URL, let this = self {
+
+                // Always copy
+                let newName = this.getFileName(from :url)
+                let newPath = FileManager.default
+                  .containerURL(forSecurityApplicationGroupIdentifier: "group.\(this.hostAppBundleIdentifier)")!
+                  .appendingPathComponent("\(newName)")
+                let copied = this.copyFile(at: url, to: newPath)
+                if (copied) {
+                  this.sharedMedia.append(SharedMediaFile(path: newPath.absoluteString, thumbnail: nil, duration: nil, type: .file))
+                }
+
+                if index == (content.attachments?.count)! - 1 {
+                  let userDefaults = UserDefaults(suiteName: "group.\(this.hostAppBundleIdentifier)")
+                  userDefaults?.set(this.toData(data: this.sharedMedia), forKey: this.sharedKey)
+                  userDefaults?.synchronize()
+                  this.redirectToHostApp(type: .file)
+                }
+
+              } else {
+                self?.dismissWithError()
+              }
+            }
           }
         }
       }
     }
   }
 
-  override func configurationItems() -> [Any]! {
+  func configurationItems() -> [Any]! {
     // To add configuration options via table cells at the bottom of the sheet, return an array of SLComposeSheetConfigurationItem here.
     return []
   }

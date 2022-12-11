@@ -21,7 +21,7 @@
     "react-use": "^15.2.4",
     "typescript": "^3.7.5",
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "morgan": "^1.9.1",
     "nnode": "^0.3.3",
     "promisepipe": "^3.0.0",
